@@ -30,7 +30,7 @@ if (loginForm)
   });
 
 if (logOutBtn) logOutBtn.addEventListener('click', logout);
-console.log(logOutBtn);
+
 if (userDataForm)
   userDataForm.addEventListener('submit', (e) => {
     // to prevent the page form reloading
@@ -63,11 +63,10 @@ if (userPasswordForm)
     document.querySelector('.btn--save--pasword').textContent = 'Save Password';
   });
 
-console.log(bookBtn);
 if (bookBtn)
   bookBtn.addEventListener('click', (e) => {
     e.target.textContent = 'processing...';
     const { tourId } = e.target.dataset;
-    console.log(tourId);
+
     bookTour(tourId);
   });

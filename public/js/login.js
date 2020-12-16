@@ -23,17 +23,18 @@ export const login = async (email, password) => {
 };
 
 export const logout = async () => {
-  // try {
-  const res = await axios({
-    method: 'GET',
-    url: 'http://127.0.0.1:3000/api/v1/users/logout',
-  });
-  if (res.data.status === 'success')
-    window.setTimeout(() => {
-      location.assign('/');
-    }, 1000);
-  // } catch (err) {
-  //   console.log(err);
-  //   showAlert('error', 'Error logging out! Try again.');
-  // }
+  try {
+    const res = await axios({
+      method: 'GET',
+      url: '/api/v1/users/logout',
+    });
+    if (res.data.status === 'success') {
+      window.setTimeout(() => {
+        location.assign('/');
+      }, 1000);
+    }
+  } catch (err) {
+    console.log(err);
+    showAlert('error', 'Error logging out! Try again.');
+  }
 };

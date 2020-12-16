@@ -7,6 +7,7 @@ const mongoSanitize = require('express-mongo-sanitize');
 const xss = require('xss-clean');
 const hpp = require('hpp');
 const cookieParser = require('cookie-parser');
+const compression = require('compression');
 
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
@@ -119,6 +120,9 @@ app.use(
   })
 );
 
+// comprass html and json files but not images bec they already is
+app.use(compression());
+
 // app.use((req, res, next) => {
 //   // req.requestTime = new Date().toDateString();
 //   // console.log(req.cookies);
@@ -127,6 +131,7 @@ app.use(
 
 // 2) ROUTES
 // middleware that is specific to this router
+
 app.use('/', viewRouter);
 app.use('/api/v1/tours', tourRouter);
 app.use('/api/v1/users', userRouter);
