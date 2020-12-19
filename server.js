@@ -17,6 +17,7 @@ const DB = process.env.DATABASE.replace(
   process.env.DATABASE_PASSWORD
 );
 // connect our project to mongoDB using mongoose library
+// connect our project to mongoDB using mongoose library
 mongoose
   .connect(DB, {
     useNewUrlParser: true,
