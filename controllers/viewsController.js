@@ -5,13 +5,13 @@ const Booking = require('../models/bookingModel');
 const catchAsync = require('../utils/catchAsync');
 const AppError = require('../utils/appError');
 
-exports.getOverview = catchAsync(async (req, res, next) => {
+exports.getindex = catchAsync(async (req, res, next) => {
   // 1) Get tour data from collection
   const tours = await Tour.find();
   // 2) Build template
 
   // 3) Render that template using tour data from step 1
-  res.status(200).render('overview', {
+  res.status(200).render('index', {
     title: 'All tours',
     tours,
   });
@@ -54,7 +54,7 @@ exports.getMyTours = catchAsync(async (req, res, next) => {
   const tourIDs = bookings.map((booking) => booking.tour);
   const tours = await Tour.find({ _id: { $in: tourIDs } });
 
-  res.status(200).render('overview', {
+  res.status(200).render('index', {
     title: 'My Tours',
     tours,
   });

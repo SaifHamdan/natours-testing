@@ -23,7 +23,7 @@
   <body>
     <header class="header">
       <nav class="nav nav--tours">
-        <a href="/overview.html" class="nav__el">All tours</a>
+        <a href="/index.html" class="nav__el">All tours</a>
         <form class="nav__search">
           <button class="nav__search-btn">
             <svg>
@@ -81,69 +81,69 @@
     </section>
 
     <section class="section-description">
-      <div class="overview-box">
+      <div class="index-box">
         <div>
-          <div class="overview-box__group">
+          <div class="index-box__group">
             <h2 class="heading-secondary ma-bt-lg">Quick facts</h2>
-            <div class="overview-box__detail">
-              <svg class="overview-box__icon">
+            <div class="index-box__detail">
+              <svg class="index-box__icon">
                 <use xlink:href="img/icons.svg#icon-calendar"></use>
               </svg>
-              <span class="overview-box__label">Next date</span>
-              <span class="overview-box__text">August 2021</span>
+              <span class="index-box__label">Next date</span>
+              <span class="index-box__text">August 2021</span>
             </div>
-            <div class="overview-box__detail">
-              <svg class="overview-box__icon">
+            <div class="index-box__detail">
+              <svg class="index-box__icon">
                 <use xlink:href="img/icons.svg#icon-trending-up"></use>
               </svg>
-              <span class="overview-box__label">Difficulty</span>
-              <span class="overview-box__text">Medium</span>
+              <span class="index-box__label">Difficulty</span>
+              <span class="index-box__text">Medium</span>
             </div>
-            <div class="overview-box__detail">
-              <svg class="overview-box__icon">
+            <div class="index-box__detail">
+              <svg class="index-box__icon">
                 <use xlink:href="img/icons.svg#icon-user"></use>
               </svg>
-              <span class="overview-box__label">Participants</span>
-              <span class="overview-box__text">10 people</span>
+              <span class="index-box__label">Participants</span>
+              <span class="index-box__text">10 people</span>
             </div>
-            <div class="overview-box__detail">
-              <svg class="overview-box__icon">
+            <div class="index-box__detail">
+              <svg class="index-box__icon">
                 <use xlink:href="img/icons.svg#icon-star"></use>
               </svg>
-              <span class="overview-box__label">Rating</span>
-              <span class="overview-box__text">4.9 / 5</span>
+              <span class="index-box__label">Rating</span>
+              <span class="index-box__text">4.9 / 5</span>
             </div>
           </div>
 
-          <div class="overview-box__group">
+          <div class="index-box__group">
             <h2 class="heading-secondary ma-bt-lg">Your tour guides</h2>
 
-            <div class="overview-box__detail">
+            <div class="index-box__detail">
               <img
                 src="img/users/user-19.jpg"
                 alt="Lead guide"
-                class="overview-box__img"
+                class="index-box__img"
               />
-              <span class="overview-box__label">Lead guide</span>
-              <span class="overview-box__text">Steven Miller</span>
+              <span class="index-box__label">Lead guide</span>
+              <span class="index-box__text">Steven Miller</span>
             </div>
-            <div class="overview-box__detail">
+            <div class="index-box__detail">
               <img
                 src="img/users/user-18.jpg"
                 alt="Tour guide"
-                class="overview-box__img"
+                class="index-box__img"
               />
-              <span class="overview-box__label">Tour guide</span>
-              <span class="overview-box__text">Lisa Brown</span>
+              <span class="index-box__label">Tour guide</span>
+              <span class="index-box__text">Lisa Brown</span>
             </div>
-            <div class="overview-box__detail">
+            <div class="index-box__detail">
               <img
                 src="img/users/user-17.jpg"
                 alt="Intern"
-                class="overview-box__img"
+                class="index-box__img"
               />
-              <span class="overview-box__label">Intern</span>
-              <span class="overview-box__text">Max Smith</span>
+              <span class="index-box__label">Intern</span>
+              <span class="index-box__text">Max Smith</span>
             </div>
           </div>
         </div>
@@ -205,67 +205,67 @@
               type: 'Feature',
               geometry: {
                 type: 'Point',
-                coordinates: [-112.987418, 37.198125]
+                coordinates: [-112.987418, 37.198125],
               },
               properties: {
-                description: 'Zion Canyon National Park'
-              }
+                description: 'Zion Canyon National Park',
+              },
             },
             {
               type: 'Feature',
               geometry: {
                 type: 'Point',
-                coordinates: [-111.376161, 36.86438]
+                coordinates: [-111.376161, 36.86438],
               },
               properties: {
-                description: 'Antelope Canyon'
-              }
+                description: 'Antelope Canyon',
+              },
             },
             {
               type: 'Feature',
               geometry: {
                 type: 'Point',
-                coordinates: [-112.115763, 36.058973]
+                coordinates: [-112.115763, 36.058973],
               },
               properties: {
-                description: 'Grand Canyon National Park'
-              }
+                description: 'Grand Canyon National Park',
+              },
             },
             {
               type: 'Feature',
               geometry: {
                 type: 'Point',
-                coordinates: [-116.107963, 34.011646]
+                coordinates: [-116.107963, 34.011646],
               },
               properties: {
-                description: 'Joshua Tree National Park'
-              }
-            }
-          ]
+                description: 'Joshua Tree National Park',
+              },
+            },
+          ],
         };
 
         const map = new mapboxgl.Map({
           container: 'map',
           style: 'mapbox://styles/jonasschmedtmann/cjnxfn3zk7bj52rpegdltx58h',
-          scrollZoom: false
+          scrollZoom: false,
         });
 
         const bounds = new mapboxgl.LngLatBounds();
 
-        geojson.features.forEach(function(marker) {
+        geojson.features.forEach(function (marker) {
           var el = document.createElement('div');
           el.className = 'marker';
 
           new mapboxgl.Marker({
             element: el,
-            anchor: 'bottom'
+            anchor: 'bottom',
           })
             .setLngLat(marker.geometry.coordinates)
             .addTo(map);
 
           new mapboxgl.Popup({
             offset: 30,
-            closeOnClick: false
+            closeOnClick: false,
           })
             .setLngLat(marker.geometry.coordinates)
             .setHTML('<p>' + marker.properties.description + '</p>')
@@ -279,11 +279,11 @@
             top: 200,
             bottom: 150,
             left: 50,
-            right: 50
-          }
+            right: 50,
+          },
         });
 
-        map.on('load', function() {
+        map.on('load', function () {
           map.addLayer({
             id: 'route',
             type: 'line',
@@ -298,20 +298,20 @@
                     [-112.987418, 37.198125],
                     [-111.376161, 36.86438],
                     [-112.115763, 36.058973],
-                    [-116.107963, 34.011646]
-                  ]
-                }
-              }
+                    [-116.107963, 34.011646],
+                  ],
+                },
+              },
             },
             layout: {
               'line-join': 'round',
-              'line-cap': 'round'
+              'line-cap': 'round',
             },
             paint: {
               'line-color': '#55c57a',
               'line-opacity': 0.6,
-              'line-width': 3
-            }
+              'line-width': 3,
+            },
           });
         });
       </script>

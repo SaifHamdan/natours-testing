@@ -8,7 +8,7 @@ router.get(
   '/',
   bookingController.createBookingCheckout,
   authController.isLoggedIn,
-  viewsController.getOverview
+  viewsController.getindex
 );
 router.get('/tour/:slug', authController.isLoggedIn, viewsController.getTour);
 router.get('/login', authController.isLoggedIn, viewsController.getLoginForm);

@@ -9,12 +9,12 @@ block append head
 
 
 
-mixin overviewBox(label, text, icon) 
-  .overview-box__detail
-    svg.overview-box__icon
+mixin indexBox(label, text, icon) 
+  .index-box__detail
+    svg.index-box__icon
       use(xlink:href=`/img/icons.svg#icon-${icon}`)
-    span.overview-box__label=label
-    span.overview-box__text=text
+    span.index-box__label=label
+    span.index-box__text=text
 
 
 block content
@@ -37,27 +37,27 @@ block content
           span.heading-box__text= tour.startLocation.description
 
   section.section-description
-    .overview-box
+    .index-box
       div
-        .overview-box__group
+        .index-box__group
           h2.heading-secondary.ma-bt-lg Quick facts
           - const date =  tour.startDates[0].toLocaleString('en-us', {month: 'long', year:'numeric'});
-          +overviewBox('Next Date', date, 'calendar')
-          +overviewBox('Difficulty', tour.difficulty, 'trending-up')
-          +overviewBox('Participants', `${tour.maxGroupSize} people`, 'user')
-          +overviewBox('Rating', `${tour.ratingsAverage} / 5`, 'star')
-        .overview-box__group
+          +indexBox('Next Date', date, 'calendar')
+          +indexBox('Difficulty', tour.difficulty, 'trending-up')
+          +indexBox('Participants', `${tour.maxGroupSize} people`, 'user')
+          +indexBox('Rating', `${tour.ratingsAverage} / 5`, 'star')
+        .index-box__group
           h2.heading-secondary.ma-bt-lg Your tour guides
 
           each guide in tour.guides
-            .overview-box__detail
-              img.overview-box__img(src=`/img/users/${guide.photo}`, alt=`${guide.name}`)
+            .index-box__detail
+              img.index-box__img(src=`/img/users/${guide.photo}`, alt=`${guide.name}`)
 
               - if (guide.role === 'lead-guide')
-                span.overview-box__label Lead guide
+                span.index-box__label Lead guide
               - if (guide.role === 'guide')
-                span.overview-box__label Tour guide
-              span.overview-box__text=guide.name
+                span.index-box__label Tour guide
+              span.index-box__text=guide.name
 
     .description-box
       h2.heading-secondary.ma-bt-lg=`About ${tour.name}`
