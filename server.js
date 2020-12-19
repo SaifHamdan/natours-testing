@@ -40,3 +40,12 @@ process.on('unhandledRejection', (err) => {
     process.exit(1);
   });
 });
+
+// this is for heroku when it shuts the server every 24h
+// we don't want to shut it down immeditly it should handle the requests then shut down
+process.on('SIGTERM', () => {
+  console.log('TIGTERM RECEIVED. Shutting down gracefully');
+  server.close(() => {
+    console.log('Process Terminated!');
+  });
+});
